@@ -11,6 +11,7 @@ import { useVueFlow } from '../../composables/useVueFlow'
 import { useHooks } from '../../store/hooks'
 import EdgeRenderer from '../EdgeRenderer/EdgeRenderer.vue'
 import NodeRenderer from '../NodeRenderer/NodeRenderer.vue'
+import { StoreUpdater } from './StoreUpdater'
 
 const props = withDefaults(defineProps<FlowProps>(), {
   snapToGrid: undefined,
@@ -113,5 +114,7 @@ export default {
     <slot />
 
     <A11yDescriptions />
+
+    <StoreUpdater :opts="props" />
   </div>
 </template>
