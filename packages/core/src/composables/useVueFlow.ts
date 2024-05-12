@@ -36,7 +36,9 @@ export function useVueFlow(options?: FlowOptions): VueFlowStore {
    */
   if (scope) {
     const injection = inject(VueFlow, null)
-    if (typeof injection !== 'undefined' && injection !== null) {
+    const injectionExists = typeof injection !== 'undefined' && injection !== null
+
+    if (injectionExists) {
       vueFlow = injection
     }
   }
@@ -51,12 +53,13 @@ export function useVueFlow(options?: FlowOptions): VueFlowStore {
     }
   }
 
+  const differentStoreInstance = !!vueFlow && !!id && id !== vueFlow.id
   /**
    * If we cannot find any store instance in the previous steps
    * _or_ if the store instance we found does not match up with provided ids
    * create a new store instance and register it in storage
    */
-  if (!vueFlow || (vueFlow && id && id !== vueFlow.id)) {
+  if (!vueFlow || differentStoreInstance) {
     const name = id ?? storage.getId()
 
     const state = storage.create(name, options)
