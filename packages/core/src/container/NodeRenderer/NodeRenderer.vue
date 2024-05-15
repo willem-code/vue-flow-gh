@@ -6,6 +6,7 @@ import { Slots } from '../../context'
 import { useVueFlow } from '../../composables'
 import { ErrorCode, VueFlowError } from '../../utils'
 import { useNodesInitialized } from '../../composables/useNodesInitialized'
+import { useVisibleNodeIds } from '../../composables/useVisibleNodeIds'
 
 const {
   nodes,
@@ -13,11 +14,13 @@ const {
   nodesFocusable,
   elementsSelectable,
   nodesConnectable,
-  getNodes,
   getNodeTypes,
   updateNodeDimensions,
   emits,
+  onlyRenderVisibleElements,
 } = useVueFlow()
+
+const visibleNodeIds = useVisibleNodeIds(onlyRenderVisibleElements)
 
 const nodesInitialized = useNodesInitialized()
 
@@ -110,17 +113,15 @@ export default {
   <div class="vue-flow__nodes vue-flow__container">
     <template v-if="resizeObserver">
       <NodeWrapper
-        v-for="node of getNodes"
-        :id="node.id"
-        :key="node.id"
+        v-for="id of visibleNodeIds"
+        :id="id"
+        :key="id"
+        :draggable="true"
+        :focusable="true"
+        :selectable="true"
+        type="default"
+        name="default"
         :resize-observer="resizeObserver"
-        :type="getType(node.type, node.template)"
-        :name="node.type || 'default'"
-        :draggable="draggable(node.draggable)"
-        :selectable="selectable(node.selectable)"
-        :connectable="connectable(node.connectable)"
-        :focusable="focusable(node.focusable)"
-        :node="node"
       />
     </template>
   </div>
