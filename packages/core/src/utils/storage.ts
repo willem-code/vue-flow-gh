@@ -57,12 +57,12 @@ export class Storage {
     }
 
     // for lookup purposes
-    const nodeIds = computed(() => reactiveState.nodes.map((n) => n.id))
-    const edgeIds = computed(() => reactiveState.edges.map((e) => e.id))
+    const nodesMap = computed(() => new Map(reactiveState.nodes.map((n) => [n.id, n])))
+    const edgesMap = computed(() => new Map(reactiveState.edges.map((e) => [e.id, e])))
 
-    const getters = useGetters(reactiveState, nodeIds, edgeIds)
+    const getters = useGetters(reactiveState, nodesMap, edgesMap)
 
-    const actions = useActions(id, reactiveState, nodeIds, edgeIds)
+    const actions = useActions(id, reactiveState, nodesMap, edgesMap)
 
     actions.setState({ ...reactiveState, ...preloadedState })
 
