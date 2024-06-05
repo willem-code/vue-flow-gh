@@ -67,9 +67,9 @@
     "@tooling/eslint-config": "workspace:*",
     "@tooling/tsconfig": "workspace:*",
     "@tooling/vite-config": "workspace:*",
-    "@types/pathfinding": "^0.0.6",
+    "@types/pathfinding": "^0.0.9",
     "@vue-flow/core": "workspace:*",
-    "vue-tsc": "^1.8.16"
+    "vue-tsc": "^2.0.19"
   },
   "publishConfig": {
     "access": "public",

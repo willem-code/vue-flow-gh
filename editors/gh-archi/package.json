@@ -1,0 +1,30 @@
+{
+  "name": "@vue-flow/gh-archi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint --ext .js,.ts,.vue ./ && vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@dagrejs/dagre": "^1.1.2",
+    "@vue-flow/background": "workspace:*",
+    "@vue-flow/controls": "workspace:*",
+    "@vue-flow/core": "workspace:*",
+    "@vue-flow/minimap": "workspace:*",
+    "@vue-flow/node-resizer": "workspace:*",
+    "@vue-flow/node-toolbar": "workspace:*",
+    "pinia": "^2.1.7"
+  },
+  "devDependencies": {
+    "@tooling/eslint-config": "workspace:*",
+    "@tooling/tsconfig": "workspace:*",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "unplugin-auto-import": "^0.17.6",
+    "vite": "^5.2.12",
+    "vite-svg-loader": "^5.1.0",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2",
+    "vue-tsc": "^2.0.19"
+  }
+}
