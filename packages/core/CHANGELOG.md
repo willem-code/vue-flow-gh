@@ -1,5 +1,21 @@
 # @vue-flow/core
 
+## 1.35.0
+
+### Minor Changes
+
+- [#1446](https://github.com/bcakmakoglu/vue-flow/pull/1446) [`d8bdac1`](https://github.com/bcakmakoglu/vue-flow/commit/d8bdac137d753d82270bea15cbb5b30afc662e9b) Thanks [@bcakmakoglu](https://github.com/bcakmakoglu)! - Remove visibility (hidden) check from `getNodes` & `getEdges`
+
+- [#1440](https://github.com/bcakmakoglu/vue-flow/pull/1440) [`a02b9a4`](https://github.com/bcakmakoglu/vue-flow/commit/a02b9a42598adc0a37198297ca71d48dd621f42e) Thanks [@bcakmakoglu](https://github.com/bcakmakoglu)! - Remove auto-generated hanle-ids and use `null` as the default handle id.
+  If you were relying on handle-ids in your code but weren't assigning them explicitly, you'll might need to update your code to handle this change.
+  By default, if you don't provide a handle-id, it will be `null` and the first handle of the corresponding type will be used.
+
+- [#1446](https://github.com/bcakmakoglu/vue-flow/pull/1446) [`d8bdac1`](https://github.com/bcakmakoglu/vue-flow/commit/d8bdac137d753d82270bea15cbb5b30afc662e9b) Thanks [@bcakmakoglu](https://github.com/bcakmakoglu)! - Render `null` if edge is hidden
+
+- [#1433](https://github.com/bcakmakoglu/vue-flow/pull/1433) [`7547ade`](https://github.com/bcakmakoglu/vue-flow/commit/7547adeca54c133274a2ab62a5b31b168f017679) Thanks [@bcakmakoglu](https://github.com/bcakmakoglu)! - Add `edgeId` to handle connection objects returned by `useHandleConnections`
+
+- [#1445](https://github.com/bcakmakoglu/vue-flow/pull/1445) [`64a5162`](https://github.com/bcakmakoglu/vue-flow/commit/64a5162bb056b31e898fca6a499173a6c3dc0ae6) Thanks [@bcakmakoglu](https://github.com/bcakmakoglu)! - Render `null` if node is hidden but render whole list of nodes regardless of visibility
+
 ## 1.34.1
 
 ### Patch Changes
